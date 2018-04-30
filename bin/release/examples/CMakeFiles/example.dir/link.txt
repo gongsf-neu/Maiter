@@ -1,0 +1,2 @@
+/usr/bin/ar qc libexample.a  CMakeFiles/example.dir/pagerank.cc.o CMakeFiles/example.dir/shortestpath.cc.o CMakeFiles/example.dir/adsorption.cc.o CMakeFiles/example.dir/katz.cc.o CMakeFiles/example.dir/simrank.cc.o CMakeFiles/example.dir/con_component.cc.o CMakeFiles/example.dir/php.cc.o
+/usr/bin/ranlib libexample.a

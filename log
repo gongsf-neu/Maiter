@@ -1,0 +1,17 @@
+--------------------------------------------------------------------------
+The following command line options and corresponding MCA parameter have
+been deprecated and replaced as follows:
+
+  Command line options:
+    Deprecated:  --bycore, -bycore
+    Replacement: --map-by core
+
+  Equivalent MCA parameter:
+    Deprecated:  rmaps_base_bycore
+    Replacement: rmaps_base_mapping_policy=core
+
+The deprecated forms *will* disappear in a future version of Open MPI.
+Please update to the new syntax.
+--------------------------------------------------------------------------
+total F1 : 0.00132147
+total F2 : 916428

@@ -1,0 +1,2496 @@
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0d809/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_0d809.dir/build.make CMakeFiles/cmTC_0d809.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0d809.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_0d809.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_0d809.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_0d809.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_0d809.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_0d809/fast' failed
+make[1]: *** [cmTC_0d809/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bd80d/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_bd80d.dir/build.make CMakeFiles/cmTC_bd80d.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bd80d.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_bd80d.dir/CheckSymbolExists.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_bd80d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bd80d.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_bd80d.dir/CheckSymbolExists.c.o  -o cmTC_bd80d -rdynamic 
+CMakeFiles/cmTC_bd80d.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_bd80d.dir/build.make:97: recipe for target 'cmTC_bd80d' failed
+make[2]: *** [cmTC_bd80d] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_bd80d/fast' failed
+make[1]: *** [cmTC_bd80d/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+File /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7224f/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_7224f.dir/build.make CMakeFiles/cmTC_7224f.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7224f.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7224f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7224f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7224f.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_7224f.dir/CheckFunctionExists.c.o  -o cmTC_7224f -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_7224f.dir/build.make:97: recipe for target 'cmTC_7224f' failed
+make[2]: *** [cmTC_7224f] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_7224f/fast' failed
+make[1]: *** [cmTC_7224f/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file /usr/include/libunwind.h exists failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_86d04/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_86d04.dir/build.make CMakeFiles/cmTC_86d04.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_86d04.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_86d04.dir/CheckIncludeFile.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:36: fatal error: /usr/include/libunwind.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_86d04.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_86d04.dir/CheckIncludeFile.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_86d04.dir/CheckIncludeFile.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_86d04/fast' failed
+make[1]: *** [cmTC_86d04/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_85f8e/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_85f8e.dir/build.make CMakeFiles/cmTC_85f8e.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_85f8e.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_85f8e.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_85f8e.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_85f8e.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_85f8e.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_85f8e/fast' failed
+make[1]: *** [cmTC_85f8e/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6ec9b/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_6ec9b.dir/build.make CMakeFiles/cmTC_6ec9b.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6ec9b.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_6ec9b.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_6ec9b.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_6ec9b.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_6ec9b.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_6ec9b/fast' failed
+make[1]: *** [cmTC_6ec9b/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5341c/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_5341c.dir/build.make CMakeFiles/cmTC_5341c.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5341c.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_5341c.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_5341c.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_5341c.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_5341c.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_5341c/fast' failed
+make[1]: *** [cmTC_5341c/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a92fc/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_a92fc.dir/build.make CMakeFiles/cmTC_a92fc.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a92fc.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_a92fc.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_a92fc.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_a92fc.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_a92fc.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a92fc/fast' failed
+make[1]: *** [cmTC_a92fc/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d925f/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d925f.dir/build.make CMakeFiles/cmTC_d925f.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d925f.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_d925f.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_d925f.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d925f.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_d925f.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d925f/fast' failed
+make[1]: *** [cmTC_d925f/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5333b/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_5333b.dir/build.make CMakeFiles/cmTC_5333b.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5333b.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_5333b.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_5333b.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_5333b.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_5333b.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_5333b/fast' failed
+make[1]: *** [cmTC_5333b/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_634b0/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_634b0.dir/build.make CMakeFiles/cmTC_634b0.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_634b0.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_634b0.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_634b0.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_634b0.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_634b0.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_634b0/fast' failed
+make[1]: *** [cmTC_634b0/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_88b7a/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_88b7a.dir/build.make CMakeFiles/cmTC_88b7a.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_88b7a.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_88b7a.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_88b7a.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_88b7a.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_88b7a.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_88b7a/fast' failed
+make[1]: *** [cmTC_88b7a/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d3a76/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d3a76.dir/build.make CMakeFiles/cmTC_d3a76.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d3a76.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_d3a76.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_d3a76.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d3a76.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_d3a76.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d3a76/fast' failed
+make[1]: *** [cmTC_d3a76/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0ddf7/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_0ddf7.dir/build.make CMakeFiles/cmTC_0ddf7.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ddf7.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_0ddf7.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_0ddf7.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_0ddf7.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_0ddf7.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_0ddf7/fast' failed
+make[1]: *** [cmTC_0ddf7/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b859a/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_b859a.dir/build.make CMakeFiles/cmTC_b859a.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b859a.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_b859a.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_b859a.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_b859a.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_b859a.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_b859a/fast' failed
+make[1]: *** [cmTC_b859a/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5bf7f/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_5bf7f.dir/build.make CMakeFiles/cmTC_5bf7f.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5bf7f.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_5bf7f.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_5bf7f.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_5bf7f.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_5bf7f.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_5bf7f/fast' failed
+make[1]: *** [cmTC_5bf7f/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0fdd9/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_0fdd9.dir/build.make CMakeFiles/cmTC_0fdd9.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0fdd9.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_0fdd9.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_0fdd9.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_0fdd9.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_0fdd9.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_0fdd9/fast' failed
+make[1]: *** [cmTC_0fdd9/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b46a8/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_b46a8.dir/build.make CMakeFiles/cmTC_b46a8.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b46a8.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_b46a8.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_b46a8.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_b46a8.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_b46a8.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_b46a8/fast' failed
+make[1]: *** [cmTC_b46a8/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_894b2/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_894b2.dir/build.make CMakeFiles/cmTC_894b2.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_894b2.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_894b2.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_894b2.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_894b2.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_894b2.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_894b2/fast' failed
+make[1]: *** [cmTC_894b2/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c5a12/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_c5a12.dir/build.make CMakeFiles/cmTC_c5a12.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c5a12.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_c5a12.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_c5a12.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_c5a12.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_c5a12.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_c5a12/fast' failed
+make[1]: *** [cmTC_c5a12/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6f93c/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_6f93c.dir/build.make CMakeFiles/cmTC_6f93c.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6f93c.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_6f93c.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_6f93c.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_6f93c.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_6f93c.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_6f93c/fast' failed
+make[1]: *** [cmTC_6f93c/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_478cc/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_478cc.dir/build.make CMakeFiles/cmTC_478cc.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_478cc.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_478cc.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_478cc.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_478cc.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_478cc.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_478cc/fast' failed
+make[1]: *** [cmTC_478cc/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b8c5d/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_b8c5d.dir/build.make CMakeFiles/cmTC_b8c5d.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b8c5d.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_b8c5d.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_b8c5d.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_b8c5d.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_b8c5d.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_b8c5d/fast' failed
+make[1]: *** [cmTC_b8c5d/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9e31c/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_9e31c.dir/build.make CMakeFiles/cmTC_9e31c.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9e31c.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_9e31c.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_9e31c.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_9e31c.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_9e31c.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_9e31c/fast' failed
+make[1]: *** [cmTC_9e31c/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_754ab/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_754ab.dir/build.make CMakeFiles/cmTC_754ab.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_754ab.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_754ab.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_754ab.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_754ab.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_754ab.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_754ab/fast' failed
+make[1]: *** [cmTC_754ab/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_35343/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_35343.dir/build.make CMakeFiles/cmTC_35343.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_35343.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_35343.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_35343.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_35343.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_35343.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_35343/fast' failed
+make[1]: *** [cmTC_35343/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ff3ed/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_ff3ed.dir/build.make CMakeFiles/cmTC_ff3ed.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ff3ed.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_ff3ed.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_ff3ed.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_ff3ed.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_ff3ed.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_ff3ed/fast' failed
+make[1]: *** [cmTC_ff3ed/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2e934/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_2e934.dir/build.make CMakeFiles/cmTC_2e934.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2e934.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_2e934.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_2e934.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_2e934.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_2e934.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_2e934/fast' failed
+make[1]: *** [cmTC_2e934/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4df99/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_4df99.dir/build.make CMakeFiles/cmTC_4df99.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4df99.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_4df99.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_4df99.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_4df99.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_4df99.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_4df99/fast' failed
+make[1]: *** [cmTC_4df99/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e7b8b/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e7b8b.dir/build.make CMakeFiles/cmTC_e7b8b.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e7b8b.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_e7b8b.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_e7b8b.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_e7b8b.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_e7b8b.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e7b8b/fast' failed
+make[1]: *** [cmTC_e7b8b/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7e099/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_7e099.dir/build.make CMakeFiles/cmTC_7e099.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7e099.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_7e099.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_7e099.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_7e099.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_7e099.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_7e099/fast' failed
+make[1]: *** [cmTC_7e099/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_642c7/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_642c7.dir/build.make CMakeFiles/cmTC_642c7.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_642c7.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_642c7.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_642c7.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_642c7.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_642c7.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_642c7/fast' failed
+make[1]: *** [cmTC_642c7/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4f406/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_4f406.dir/build.make CMakeFiles/cmTC_4f406.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4f406.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_4f406.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_4f406.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_4f406.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_4f406.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_4f406/fast' failed
+make[1]: *** [cmTC_4f406/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0ed9e/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_0ed9e.dir/build.make CMakeFiles/cmTC_0ed9e.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0ed9e.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_0ed9e.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_0ed9e.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_0ed9e.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_0ed9e.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_0ed9e/fast' failed
+make[1]: *** [cmTC_0ed9e/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1bcc4/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_1bcc4.dir/build.make CMakeFiles/cmTC_1bcc4.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1bcc4.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_1bcc4.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_1bcc4.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_1bcc4.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_1bcc4.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_1bcc4/fast' failed
+make[1]: *** [cmTC_1bcc4/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d39d8/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d39d8.dir/build.make CMakeFiles/cmTC_d39d8.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d39d8.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_d39d8.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_d39d8.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d39d8.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_d39d8.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d39d8/fast' failed
+make[1]: *** [cmTC_d39d8/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f79e3/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_f79e3.dir/build.make CMakeFiles/cmTC_f79e3.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f79e3.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_f79e3.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_f79e3.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_f79e3.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_f79e3.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_f79e3/fast' failed
+make[1]: *** [cmTC_f79e3/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_887e3/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_887e3.dir/build.make CMakeFiles/cmTC_887e3.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_887e3.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_887e3.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_887e3.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_887e3.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_887e3.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_887e3/fast' failed
+make[1]: *** [cmTC_887e3/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8fc57/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_8fc57.dir/build.make CMakeFiles/cmTC_8fc57.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8fc57.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_8fc57.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_8fc57.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_8fc57.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_8fc57.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_8fc57/fast' failed
+make[1]: *** [cmTC_8fc57/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cbcb6/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_cbcb6.dir/build.make CMakeFiles/cmTC_cbcb6.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cbcb6.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_cbcb6.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_cbcb6.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_cbcb6.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_cbcb6.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_cbcb6/fast' failed
+make[1]: *** [cmTC_cbcb6/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8a28d/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_8a28d.dir/build.make CMakeFiles/cmTC_8a28d.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8a28d.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_8a28d.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_8a28d.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_8a28d.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_8a28d.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_8a28d/fast' failed
+make[1]: *** [cmTC_8a28d/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1b1c0/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_1b1c0.dir/build.make CMakeFiles/cmTC_1b1c0.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1b1c0.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_1b1c0.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_1b1c0.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_1b1c0.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_1b1c0.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_1b1c0/fast' failed
+make[1]: *** [cmTC_1b1c0/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e602f/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e602f.dir/build.make CMakeFiles/cmTC_e602f.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e602f.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_e602f.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_e602f.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_e602f.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_e602f.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e602f/fast' failed
+make[1]: *** [cmTC_e602f/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cf2da/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_cf2da.dir/build.make CMakeFiles/cmTC_cf2da.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cf2da.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_cf2da.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_cf2da.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_cf2da.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_cf2da.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_cf2da/fast' failed
+make[1]: *** [cmTC_cf2da/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_630b5/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_630b5.dir/build.make CMakeFiles/cmTC_630b5.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_630b5.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_630b5.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_630b5.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_630b5.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_630b5.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_630b5/fast' failed
+make[1]: *** [cmTC_630b5/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c4293/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_c4293.dir/build.make CMakeFiles/cmTC_c4293.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c4293.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_c4293.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_c4293.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_c4293.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_c4293.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_c4293/fast' failed
+make[1]: *** [cmTC_c4293/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7ca20/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_7ca20.dir/build.make CMakeFiles/cmTC_7ca20.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7ca20.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_7ca20.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_7ca20.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_7ca20.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_7ca20.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_7ca20/fast' failed
+make[1]: *** [cmTC_7ca20/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_75753/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_75753.dir/build.make CMakeFiles/cmTC_75753.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_75753.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_75753.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_75753.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_75753.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_75753.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_75753/fast' failed
+make[1]: *** [cmTC_75753/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c3d16/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_c3d16.dir/build.make CMakeFiles/cmTC_c3d16.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c3d16.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_c3d16.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_c3d16.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_c3d16.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_c3d16.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_c3d16/fast' failed
+make[1]: *** [cmTC_c3d16/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f8d40/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_f8d40.dir/build.make CMakeFiles/cmTC_f8d40.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f8d40.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_f8d40.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_f8d40.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_f8d40.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_f8d40.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_f8d40/fast' failed
+make[1]: *** [cmTC_f8d40/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_578cb/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_578cb.dir/build.make CMakeFiles/cmTC_578cb.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_578cb.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_578cb.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_578cb.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_578cb.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_578cb.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_578cb/fast' failed
+make[1]: *** [cmTC_578cb/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_430f9/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_430f9.dir/build.make CMakeFiles/cmTC_430f9.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_430f9.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_430f9.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_430f9.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_430f9.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_430f9.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_430f9/fast' failed
+make[1]: *** [cmTC_430f9/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fc26b/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_fc26b.dir/build.make CMakeFiles/cmTC_fc26b.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fc26b.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_fc26b.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_fc26b.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_fc26b.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_fc26b.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_fc26b/fast' failed
+make[1]: *** [cmTC_fc26b/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_693c3/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_693c3.dir/build.make CMakeFiles/cmTC_693c3.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_693c3.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_693c3.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_693c3.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_693c3.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_693c3.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_693c3/fast' failed
+make[1]: *** [cmTC_693c3/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9e6f4/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_9e6f4.dir/build.make CMakeFiles/cmTC_9e6f4.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9e6f4.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_9e6f4.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_9e6f4.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_9e6f4.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_9e6f4.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_9e6f4/fast' failed
+make[1]: *** [cmTC_9e6f4/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_71c87/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_71c87.dir/build.make CMakeFiles/cmTC_71c87.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_71c87.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_71c87.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_71c87.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_71c87.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_71c87.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_71c87/fast' failed
+make[1]: *** [cmTC_71c87/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cc927/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_cc927.dir/build.make CMakeFiles/cmTC_cc927.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cc927.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_cc927.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_cc927.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_cc927.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_cc927.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_cc927/fast' failed
+make[1]: *** [cmTC_cc927/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_25df6/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_25df6.dir/build.make CMakeFiles/cmTC_25df6.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_25df6.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_25df6.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_25df6.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_25df6.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_25df6.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_25df6/fast' failed
+make[1]: *** [cmTC_25df6/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_218c0/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_218c0.dir/build.make CMakeFiles/cmTC_218c0.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_218c0.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_218c0.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_218c0.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_218c0.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_218c0.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_218c0/fast' failed
+make[1]: *** [cmTC_218c0/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_74a6a/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_74a6a.dir/build.make CMakeFiles/cmTC_74a6a.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_74a6a.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_74a6a.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_74a6a.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_74a6a.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_74a6a.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_74a6a/fast' failed
+make[1]: *** [cmTC_74a6a/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4c211/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_4c211.dir/build.make CMakeFiles/cmTC_4c211.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4c211.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_4c211.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_4c211.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_4c211.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_4c211.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_4c211/fast' failed
+make[1]: *** [cmTC_4c211/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6c768/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_6c768.dir/build.make CMakeFiles/cmTC_6c768.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6c768.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_6c768.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_6c768.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_6c768.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_6c768.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_6c768/fast' failed
+make[1]: *** [cmTC_6c768/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7ce7c/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_7ce7c.dir/build.make CMakeFiles/cmTC_7ce7c.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7ce7c.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_7ce7c.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_7ce7c.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_7ce7c.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_7ce7c.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_7ce7c/fast' failed
+make[1]: *** [cmTC_7ce7c/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_edfa9/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_edfa9.dir/build.make CMakeFiles/cmTC_edfa9.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_edfa9.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_edfa9.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_edfa9.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_edfa9.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_edfa9.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_edfa9/fast' failed
+make[1]: *** [cmTC_edfa9/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_03e3b/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_03e3b.dir/build.make CMakeFiles/cmTC_03e3b.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_03e3b.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_03e3b.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_03e3b.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_03e3b.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_03e3b.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_03e3b/fast' failed
+make[1]: *** [cmTC_03e3b/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_df22f/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_df22f.dir/build.make CMakeFiles/cmTC_df22f.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_df22f.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_df22f.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_df22f.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_df22f.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_df22f.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_df22f/fast' failed
+make[1]: *** [cmTC_df22f/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e4f7c/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e4f7c.dir/build.make CMakeFiles/cmTC_e4f7c.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e4f7c.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_e4f7c.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_e4f7c.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_e4f7c.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_e4f7c.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e4f7c/fast' failed
+make[1]: *** [cmTC_e4f7c/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_04ff5/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_04ff5.dir/build.make CMakeFiles/cmTC_04ff5.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_04ff5.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_04ff5.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_04ff5.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_04ff5.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_04ff5.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_04ff5/fast' failed
+make[1]: *** [cmTC_04ff5/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dca98/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_dca98.dir/build.make CMakeFiles/cmTC_dca98.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dca98.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_dca98.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_dca98.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_dca98.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_dca98.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_dca98/fast' failed
+make[1]: *** [cmTC_dca98/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_19c13/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_19c13.dir/build.make CMakeFiles/cmTC_19c13.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_19c13.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_19c13.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_19c13.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_19c13.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_19c13.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_19c13/fast' failed
+make[1]: *** [cmTC_19c13/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2840c/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_2840c.dir/build.make CMakeFiles/cmTC_2840c.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2840c.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_2840c.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_2840c.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_2840c.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_2840c.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_2840c/fast' failed
+make[1]: *** [cmTC_2840c/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_159e9/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_159e9.dir/build.make CMakeFiles/cmTC_159e9.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_159e9.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_159e9.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_159e9.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_159e9.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_159e9.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_159e9/fast' failed
+make[1]: *** [cmTC_159e9/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a9311/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_a9311.dir/build.make CMakeFiles/cmTC_a9311.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a9311.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_a9311.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_a9311.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_a9311.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_a9311.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a9311/fast' failed
+make[1]: *** [cmTC_a9311/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_887fd/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_887fd.dir/build.make CMakeFiles/cmTC_887fd.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_887fd.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_887fd.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_887fd.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_887fd.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_887fd.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_887fd/fast' failed
+make[1]: *** [cmTC_887fd/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a8a9d/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_a8a9d.dir/build.make CMakeFiles/cmTC_a8a9d.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a8a9d.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_a8a9d.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_a8a9d.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_a8a9d.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_a8a9d.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a8a9d/fast' failed
+make[1]: *** [cmTC_a8a9d/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d8582/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d8582.dir/build.make CMakeFiles/cmTC_d8582.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8582.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_d8582.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_d8582.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d8582.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_d8582.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d8582/fast' failed
+make[1]: *** [cmTC_d8582/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_60138/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_60138.dir/build.make CMakeFiles/cmTC_60138.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_60138.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_60138.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_60138.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_60138.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_60138.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_60138/fast' failed
+make[1]: *** [cmTC_60138/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_21025/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_21025.dir/build.make CMakeFiles/cmTC_21025.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_21025.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_21025.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_21025.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_21025.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_21025.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_21025/fast' failed
+make[1]: *** [cmTC_21025/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_975c7/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_975c7.dir/build.make CMakeFiles/cmTC_975c7.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_975c7.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_975c7.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_975c7.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_975c7.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_975c7.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_975c7/fast' failed
+make[1]: *** [cmTC_975c7/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1c791/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_1c791.dir/build.make CMakeFiles/cmTC_1c791.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1c791.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_1c791.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_1c791.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_1c791.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_1c791.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_1c791/fast' failed
+make[1]: *** [cmTC_1c791/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
+Performing C SOURCE FILE Test CompilePCFromUContext failed with the following output:
+Change Dir: /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_14635/fast"
+make[1]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_14635.dir/build.make CMakeFiles/cmTC_14635.dir/build
+make[2]: Entering directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_14635.dir/src.c.o
+/usr/bin/cc    -DCompilePCFromUContext   -o CMakeFiles/cmTC_14635.dir/src.c.o   -c /home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c: In function 'main':
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: error: 'REG_EIP' undeclared (first use in this function)
+     return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+                                  ^
+/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp/src.c:8:34: note: each undeclared identifier is reported only once for each function it appears in
+CMakeFiles/cmTC_14635.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_14635.dir/src.c.o' failed
+make[2]: *** [CMakeFiles/cmTC_14635.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_14635/fast' failed
+make[1]: *** [cmTC_14635/fast] Error 2
+make[1]: Leaving directory '/home/gongsf/Maiter/bin/release/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+  #define _GNU_SOURCE 1
+  
+#include <ucontext.h>
+#include <sys/ucontext.h>
+  int main(int argc, char** argv) {
+    ucontext_t ctx;
+    return ctx.uc_mcontext.gregs[REG_EIP] == 0;
+  }
